@@ -1,1 +1,197 @@
+/* --- Configuración Global y Colores --- */
+:root {
+    --color-fondo: #2c0000; /* Un rojo muy oscuro, casi negro */
+    --color-tarjeta: #8B0000; /* Rojo oscuro (Dark Red) */
+    --color-tarjeta-fondo: #1a1a1a; /* Fondo oscuro para la tarjeta */
+    --color-acento: #FF4500; /* Naranja-Rojo (Orange-Red) para acentos */
+    --color-texto: #f0f0f0; /* Texto claro (casi blanco) */
+    --color-texto-secundario: #aaa; /* Texto más grisáceo */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    background-image: linear-gradient(145deg, var(--color-fondo), #4a0101);
+    color: var(--color-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- Estructura de la Tarjeta Principal --- */
+.character-card {
+    background-color: var(--color-tarjeta-fondo);
+    border: 2px solid var(--color-tarjeta);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--color-acento);
+    overflow: hidden;
+    max-width: 500px; /* Ancho máximo en PC */
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* --- Encabezado (Imagen) --- */
+.card-header {
+    position: relative;
+    height: 250px;
+    background-color: #333;
+}
+
+.character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio */
+    opacity: 0.9;
+}
+
+.decorative-icon {
+    position: absolute;
+    bottom: -25px;
+    right: 20px;
+    background-color: var(--color-acento);
+    color: var(--color-texto);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 4px solid var(--color-tarjeta-fondo);
+}
+
+/* --- Cuerpo (Información) --- */
+.card-body {
+    padding: 40px 30px 30px 30px;
+    text-align: center;
+}
+
+.card-body h1 {
+    font-size: 2.5rem;
+    color: var(--color-acento);
+    margin: 0;
+}
+
+.card-body h2 {
+    font-size: 1.2rem;
+    color: var(--color-texto-secundario);
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.card-body p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* --- Botón de Sonido --- */
+.sound-button {
+    background-color: var(--color-acento);
+    color: var(--color-texto);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sound-button:hover {
+    background-color: #ff6a00; /* Un poco más brillante al pasar el mouse */
+    box-shadow: 0 0 15px #ff6a00;
+}
+
+/* --- Reproductor de Música --- */
+.music-player {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+.music-player label {
+    display: block;
+    margin-bottom: 10px;
+}
+audio {
+    width: 100%;
+    filter: invert(0.8) sepia(1) saturate(5) hue-rotate(320deg);
+}
+
+/* --- Pie de Página (Enlaces) --- */
+.card-footer {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid var(--color-tarjeta);
+}
+
+.card-footer h3 {
+    margin: 0 0 15px 0;
+    color: var(--color-texto-secundario);
+    font-weight: normal;
+}
+
+.platform-links a {
+    color: var(--color-texto);
+    font-size: 1.8rem;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+}
+
+.platform-links a:hover {
+    color: var(--color-acento);
+    transform: scale(1.2);
+}
+
+/* --- Diseño Responsivo (Para Computadora) --- */
+@media (min-width: 900px) {
+    .character-card {
+        max-width: 900px;
+        display: flex; /* Cambia a modo horizontal */
+    }
+
+    .card-header {
+        flex: 0 0 350px; /* Ancho fijo para la imagen */
+        height: auto;
+    }
+
+    .decorative-icon {
+        bottom: 20px;
+        right: -25px; /* Se mueve al costado */
+    }
+
+    .card-body {
+        flex: 1;
+        text-align: left;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .card-footer {
+        /* En modo PC, movemos los enlaces a una columna separada */
+        flex: 0 0 150px;
+        border-top: none;
+        border-left: 1px solid var(--color-tarjeta);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #111;
+    }
+
+    .platform-links {
+        display: flex;
+        flex-direction: column; /* Iconos uno debajo del otro */
+    }
+
+    .platform-links a {
+        margin: 15px 0;
+    }
+}
 
